@@ -9,6 +9,11 @@
     --blue: #CDF0FF;
 }
 
+/* revise highlighting color */
+::selection {
+    background-color: var(--red);
+}
+
 /* Set up the default styles first, which will apply to desktop screens. The media queries will be included in the next section. */
 
 /* Base */
@@ -20,6 +25,7 @@ body {
     background: url("../img/background.png");
     background-size: cover;
     font-family: var(--primary-font);
+    overflow-x: hidden;
 }
 
 img {
@@ -445,9 +451,9 @@ main {
     justify-content: center;
 }
 
-#gallery-button {
+/* #gallery-button {
     width: 30%;
-}
+} */
 
 /* Contact section */
 
@@ -739,7 +745,7 @@ main {
 
     p {
         color: var(--blue);
-        font-size: 1rem;
+        font-size: 1.25rem;
     }
 
     /* Header section */
