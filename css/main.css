@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    font-size: 1.125rem;
+    font-size: 1.25rem;
     color: var(--blue);
 }
 
@@ -624,18 +624,18 @@ main {
         font-size: 1.5rem;
     }
     h4 {
-        font-size: 1.25rem;
+        font-size: 1.375rem;
     }
     h5 {
-        font-size: 1.1rem;
+        font-size: 1.25rem;
     }
     h6 {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     p {
         color: var(--blue);
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     /* Main */
@@ -704,6 +704,55 @@ main {
     #icon-4 {
         grid-row: 2 / span 1;
         grid-column: 9 / span 2;
+    }
+}
+
+/* To top button */
+
+.to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    background-color: var(--red);
+    opacity: 0.5;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    z-index: 9999;
+    transition: opacity 0.3s ease;
+}
+  
+.to-top-button:hover {
+    opacity: 1;
+}
+
+/* Custom cursor */
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.3;
+    box-shadow: 0 0 10px 5px var(--blue);
+    animation: cursor-glow 1.5s infinite alternate;
+}  
+
+@keyframes cursor-glow {
+    0% {
+      box-shadow: 0 0 4px 2.5px var(--blue);
+    }
+    100% {
+      box-shadow: 0 0 5px 5px var(--blue);
     }
 }
 

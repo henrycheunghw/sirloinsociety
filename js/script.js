@@ -49,3 +49,58 @@ subscribeButton.addEventListener('click', () => {
 closeButton.addEventListener('click', () => {
     popupCard.style.display = 'none';
 });
+
+// To top button
+window.addEventListener('scroll', function() {
+    var button = document.querySelector('.to-top-button');
+    if (window.pageYOffset > 300) {
+      button.style.display = 'block';
+    } else {
+      button.style.display = 'none';
+    }
+  });
+  
+// Custom cursor
+
+var cursor = document.querySelector('.custom-cursor');
+var mouseX = 0;
+var mouseY = 0;
+var delay = 10; // Adjust the delay value (in milliseconds) as desired
+
+document.addEventListener('mousemove', function(event) {
+  mouseX = event.clientX;
+  mouseY = event.clientY;
+});
+
+function animateCursor() {
+  var distX = mouseX - cursor.offsetLeft;
+  var distY = mouseY - cursor.offsetTop;
+  var posX = cursor.offsetLeft + (distX / delay);
+  var posY = cursor.offsetTop + (distY / delay);
+
+  cursor.style.left = posX + 'px';
+  cursor.style.top = posY + 'px';
+
+  requestAnimationFrame(animateCursor);
+};
+
+animateCursor();
+
+// Delay effect to navigating buttons
+var buttons = document.querySelectorAll('.nav-btns');
+
+function handleClick(event) {
+  event.preventDefault();
+  var target = event.target;
+  
+  target.classList.add('disabled');
+  
+  setTimeout(function() {
+    target.classList.remove('disabled');
+    window.location.href = target.href;
+  }, 300); // Delay duration in milliseconds
+}
+
+buttons.forEach(function(button) {
+  button.addEventListener('click', handleClick);
+});
