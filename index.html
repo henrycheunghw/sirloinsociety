@@ -15,6 +15,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&display=swap" rel="stylesheet">
     <!-- Include main CSS file -->
     <link rel="stylesheet" href="css/main.css">
+    <!-- Add Lightbox CSS stylesheet -->
+	<link rel="stylesheet" href="css/lightbox.css">
 </head>
 
 <body>
@@ -126,27 +128,39 @@
                         <div class="msnry-gutter-sizer"></div>
 
                         <div class="msnry-grid-item">
-                            <img src="img/gallery1.jpg" data-src="img/gallery1.jpg" alt="Gallery 1" class="lazy">
+                            <a href="img/gallery1b.jpg" data-lightbox="gallery" data-title="Experience the epitome of sophistication.">
+                                <img src="img/gallery1.jpg" data-src="img/gallery1.jpg" alt="Gallery 1" class="lazy">
+                            </a>
                             <p>"Experience the epitome of sophistication."</p>
                         </div>
                         <div class="msnry-grid-item">
-                            <img src="img/gallery2.jpg" data-src="img/gallery2.jpg" alt="Gallery 2" class="lazy">
+                            <a href="img/gallery2b.jpg" data-lightbox="gallery" data-title="Indulge in the experience of refined dining.">
+                                <img src="img/gallery2.jpg" data-src="img/gallery2.jpg" alt="Gallery 2" class="lazy">
+                            </a>
                             <p>"Indulge in the experience of refined dining."</p>
                         </div>
                         <div class="msnry-grid-item">
-                            <img src="img/gallery3.jpg" data-src="img/gallery3.jpg" alt="Gallery 3" class="lazy">
+                            <a href="img/gallery3b.jpg" data-lightbox="gallery" data-title="Experience the freshest top-grade steak.">
+                                <img src="img/gallery3.jpg" data-src="img/gallery3.jpg" alt="Gallery 3" class="lazy">
+                            </a>
                             <p>"Experience the freshest top-grade steak."</p>
                         </div>
                         <div class="msnry-grid-item">
-                            <img src="img/gallery4.jpg" data-src="img/gallery4.jpg" alt="Gallery 4" class="lazy">
+                            <a href="img/gallery4b.jpg" data-lightbox="gallery" data-title="Expertly prepared by top local chefs.">
+                                <img src="img/gallery4.jpg" data-src="img/gallery4.jpg" alt="Gallery 4" class="lazy">
+                            </a>
                             <p>"Expertly prepared by top local chefs."</p>
                         </div>
                         <div class="msnry-grid-item">
-                            <img src="img/gallery5.jpg" data-src="img/gallery5.jpg" alt="Gallery 4" class="lazy">
+                            <a href="img/gallery5b.jpg" data-lightbox="gallery" data-title="Indulge your senses with our dishes.">
+                                <img src="img/gallery5.jpg" data-src="img/gallery5.jpg" alt="Gallery 4" class="lazy">
+                            </a>
                             <p>"Indulge your senses with our dishes."</p>
                         </div>
                         <div class="msnry-grid-item">
-                            <img src="img/gallery.jpg" data-src="img/gallery6.jpg" alt="Gallery 4" class="lazy">
+                            <a href="img/gallery6b.jpg" data-lightbox="gallery" data-title="Delight in luxury with your loved ones.">
+                                <img src="img/gallery.jpg" data-src="img/gallery6.jpg" alt="Gallery 4" class="lazy">
+                            </a>
                             <p>"Delight in luxury with your loved ones."</p>
                         </div>
                     </div>
@@ -166,7 +180,7 @@
                     </div>
                     <div class="grid">
                         <div class="contact-items" id="map">
-                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.415666711251!2d-123.11701230000001!3d49.28746860000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867183aba0ad4f%3A0xd3a936ec1f5b444e!2s353%20Burrard%20St%2C%20Vancouver%2C%20BC%20V6C%200B2!5e0!3m2!1sen!2sca!4v1680402372602!5m2!1sen!2sca" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2602.415666711251!2d-123.11701230000001!3d49.28746860000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867183aba0ad4f%3A0xd3a936ec1f5b444e!2s353%20Burrard%20St%2C%20Vancouver%2C%20BC%20V6C%200B2!5e0!3m2!1sen!2sca!4v1680402372602!5m2!1sen!2sca" width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                         <div class="contact-items" id="address">
                             <p>353 Burrard St, Vancouver, BC</p>
@@ -189,7 +203,7 @@
                         <div class="newsletter-card">
                             <h5>Subscribe to Our Newsletter</h5>
                             <input class="email" type="text" id="username" placeholder="  Your Email Address" name="username" required>
-                            <a class="button-pink" id="subscribe-button" href="#">Subscribe</a>
+                            <a class="button-pink" id="subscribe-button">Subscribe</a>
                         </div>
                         <div id="back-to-top-button">
                             <a class="button-blue nav-btns" href="#site-header">Back to Top</a>
@@ -230,10 +244,16 @@
     <!-- Custom cursor  -->
     <div class="custom-cursor"></div>
 
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
     <!-- Masonry JavaScript plugin -->
     <script src="https://unpkg.com/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script async src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
+
+    <!-- Lightbox JavaScript plugin-->
+    <script src="js/lightbox.js"></script>
 
     <!-- Include external JavaScript file -->
     <script src="js/script.js"></script>

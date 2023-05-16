@@ -1,3 +1,5 @@
+
+
 // Masonry
 
 var grid = document.querySelector('.msnry-grid');
@@ -21,6 +23,24 @@ msnry.on('layoutComplete', function(laidOutItems){
 imagesLoaded( grid ).on( 'progress', function() {
     msnry.layout();
 });
+
+// Lightbox
+lightbox.option({
+    // Set the time it takes for the Lightbox container to animate its width and height when transition between different size images in 500ms
+    'resizeDuration': 600,
+    // Set the time it takes for the Lightbox container and overlay to fade in and out in 500ms
+    'fadeDuration': 600,
+    // Resize images that would extend outside of the viewport to make them fitting neatly inside of it
+    'fitImagesInViewport': true,
+    // Set the time it takes for the image to fade in once loaded in 500ms
+    'imageFadeDuration': 600,
+    // Set the distance from top of viewport that the Lightbox container will appear in 30 pixels
+    'positionFromTop': 30,
+    // Set the time it takes for the Lightbox container to animate its width and height when transition between different size images in 500ms
+    'resizeDuration': 600,
+    // Hide the text indicating the current image number and the total number of images in set
+    'showImageNumberLabel': false,
+})
 
 // Hamburger menu
 
@@ -58,7 +78,7 @@ window.addEventListener('scroll', function() {
     } else {
       button.style.display = 'none';
     }
-  });
+});
   
 // Custom cursor
 
@@ -98,9 +118,6 @@ function handleClick(event) {
   setTimeout(function() {
     target.classList.remove('disabled');
     window.location.href = target.href;
-  }, 300); // Delay duration in milliseconds
+  }, 500); // Delay duration in milliseconds
 }
 
-buttons.forEach(function(button) {
-  button.addEventListener('click', handleClick);
-});
