@@ -67,7 +67,6 @@ img {
     border: 0;
     color: var(--red);
     cursor: pointer;
-    z-index: 9999;
     transition: background-color 0.3s linear,
                 box-shadow 0.3s linear,
                 transform 0.1s linear;
@@ -154,6 +153,53 @@ p {
     text-shadow: 2px 2px 1px var(--red);
 }
 
+/* Intro */
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--grey);
+    z-index: 9999;
+    animation: fadeOut 1.5s ease-in 2s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        z-index: 9999;
+    }
+    100% {
+        opacity: 0;
+        z-index: -1;
+    }
+}
+
+.intro-text h1 {
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+0% {
+    opacity: 0;
+    transform: scale(0.9);
+}
+100% {
+    opacity: 1;
+    transform: scale(1);
+}
+}
+
+.content {
+display: none;
+/* Add your content styles here */
+}  
+
 /* Main */
 main {
     margin-left: 100px;
@@ -193,6 +239,7 @@ main {
     text-decoration: none;
     color: var(--pink);
     font-weight: var(--bold);
+    font-size: 1.25rem;
     transition: color 0.3s linear,
                 filter 0.3s linear;
     animation: appear 1s ease-in-out forwards;
@@ -236,18 +283,18 @@ main {
     background-color: transparent;
     aspect-ratio: 2/1;
     margin-bottom: 2rem;
+    height: 100%;
 }
 
 .hero-section__images {
     grid-column: 1 / span 8;
     width: 100%;
-    height: auto;
     opacity: 0;
     transition: transform 0.3s linear,
                 opacity 0.3s linear,
                 filter 0.3s linear;
     transform: translateX(-100%);
-    animation: slide-in 1.5s forwards;
+    animation: slide-in 1.5s forwards 2s;
 }
 
 @keyframes slide-in {
@@ -264,10 +311,7 @@ main {
 
 .hero-section__images img {
     position: relative;
-    animation-name: float;
-    animation-duration: 6s;
-    animation-iteration-count: infinite;
-    animation-timing-function: ease-in-out;
+    animation: float 6s infinite ease-in-out;
 }
 
 @keyframes float {
@@ -292,7 +336,7 @@ main {
 .hero-section__text h6 {
     color: var(--blue);
     font-style: italic;
-    animation: animate-text 2s ease-in-out forwards;
+    animation: animate-text 2s ease-in-out 2s forwards;
 }
   
 @keyframes animate-text {
@@ -322,19 +366,51 @@ main {
 }
 
 .menu-items {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     min-height: 200px;
     aspect-ratio: 1/1;
     padding: 1rem;
     border-radius: 10px;
-    border: 2px solid var(--red);
-    opacity: 0.8;
+    border: 2px solid var(--grey);
+    opacity: 1;
     transition: opacity 0.3s linear,
                 box-shadow 0.3s linear,
                 transform 0.3s linear,
                 filter 0.3s linear;
+}
+
+.menu-items .body {
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.3s;
+}
+
+.menu-items::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: rgb(98,13,9);
+    background: linear-gradient(0deg, rgba(98,13,9,1) 64%, rgba(48,51,62,0) 100%);
+    opacity: 0;
+    transition: height 0.3s, opacity 0.3s;
+    z-index: 1;
+}
+
+.menu-items:hover::before {
+    height: 50%;
+    opacity: 0.5;
+  }
+  
+.menu-items:hover .body {
+    opacity: 0.6;
 }
 
 .menu-items:hover {
@@ -521,6 +597,9 @@ main {
 }
 
 .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 2rem 0;
     opacity: 0.8;
     transition: transform 0.15s linear,
@@ -582,6 +661,10 @@ main {
     border: 1px solid var(--pink);
 }
 
+.email::placeholder {
+    text-align: center;
+}  
+
 #subscribe-button {
     width: 80%;
     margin: 0;
@@ -597,6 +680,32 @@ main {
     grid-row: 5 / span 1;
     grid-column: 6 / span 2;
 }
+
+/* Reservation form */
+
+form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  label,
+  input,
+  textarea,
+  button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    padding: 8px 16px;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 6px;
+  }
+  
 
 /* Footer */
 
@@ -639,7 +748,7 @@ main {
     right: 20px;
     display: none;
     background-color: var(--red);
-    opacity: 0.5;
+    opacity: 0.3;
     color: #fff;
     width: 40px;
     height: 40px;
@@ -649,17 +758,24 @@ main {
     font-size: 20px;
     z-index: 9999;
     transition: opacity 0.3s ease;
+    animation: floatingAnimation 5s infinite ease-in-out;
 }
   
 .to-top-button:hover {
     opacity: 1;
 }
 
+@keyframes floatingAnimation {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
 /* Custom cursor */
-.custom-cursor {
+/* .custom-cursor {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: -100%;
+    left: -100%;
     width: 15px;
     height: 15px;
     background-color: transparent;
@@ -670,8 +786,7 @@ main {
     opacity: 0.3;
     box-shadow: 0 0 3px 1px var(--blue);
     animation: cursor-glow 1.5s infinite alternate;
-}  
-
+}   
 @keyframes cursor-glow {
     0% {
       box-shadow: 0 0 3px 1px var(--blue);
@@ -679,7 +794,7 @@ main {
     100% {
       box-shadow: 0 0 4px 2px var(--blue);
     }
-}
+} */
 
 /* Media Queries for desktop screens, with width value following the common practice */
 @media (min-width: 1025px) {
@@ -730,6 +845,10 @@ main {
     #site-header {
         margin-left: 33px;
         margin-right: 33px;
+    }
+
+    #site-header a {
+        font-size: 1.125rem;
     }
 
     /* Hero section */
@@ -799,10 +918,6 @@ main {
         grid-row: 5 / span 1;
         grid-column: 5 / span 4;
     }
-
-    .custom-cursor {
-        display: none;
-    }  
 }
 
 /* Media Queries for mobile screens, with width value following the common practice */
@@ -970,7 +1085,7 @@ main {
 
     #address {
         grid-column: 1 / span 4;
-    }
+    }   
 
     #icon-1 {
         grid-row: 3 / span 1;
@@ -1001,8 +1116,4 @@ main {
         grid-row: 5 / span 1;
         grid-column: 1 / span 4;
     }
-
-    .custom-cursor {
-        display: none;
-    }  
 }

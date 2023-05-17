@@ -82,29 +82,29 @@ window.addEventListener('scroll', function() {
   
 // Custom cursor
 
-var cursor = document.querySelector('.custom-cursor');
-var mouseX = 0;
-var mouseY = 0;
-var delay = 10; // Adjust the delay value (in milliseconds) as desired
+// var cursor = document.querySelector('.custom-cursor');
+// var mouseX = 0;
+// var mouseY = 0;
+// var delay = 10; // Adjust the delay value (in milliseconds) as desired
 
-document.addEventListener('mousemove', function(event) {
-  mouseX = event.clientX;
-  mouseY = event.clientY;
-});
+// document.addEventListener('mousemove', function(event) {
+//   mouseX = event.clientX;
+//   mouseY = event.clientY;
+// });
 
-function animateCursor() {
-  var distX = mouseX - cursor.offsetLeft;
-  var distY = mouseY - cursor.offsetTop;
-  var posX = cursor.offsetLeft + (distX / delay);
-  var posY = cursor.offsetTop + (distY / delay);
+// function animateCursor() {
+//   var distX = mouseX - cursor.offsetLeft;
+//   var distY = mouseY - cursor.offsetTop;
+//   var posX = cursor.offsetLeft + (distX / delay);
+//   var posY = cursor.offsetTop + (distY / delay);
 
-  cursor.style.left = posX + 'px';
-  cursor.style.top = posY + 'px';
+//   cursor.style.left = posX + 'px';
+//   cursor.style.top = posY + 'px';
 
-  requestAnimationFrame(animateCursor);
-};
+//   requestAnimationFrame(animateCursor);
+// };
 
-animateCursor();
+// animateCursor();
 
 // Delay effect to navigating buttons
 var buttons = document.querySelectorAll('.nav-btns');
