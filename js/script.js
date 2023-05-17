@@ -121,3 +121,16 @@ function handleClick(event) {
   }, 500); // Delay duration in milliseconds
 }
 
+// Snowflake
+    document.addEventListener('click', function (event) {
+    const snowContainer = document.querySelector('.snow-container');
+    const snowflake = document.createElement('div');
+    snowflake.className = 'snowflake';
+    snowflake.style.left = `${event.clientX}px`;
+    snowflake.style.top = `${event.clientY}px`;
+    snowContainer.appendChild(snowflake);
+
+    setTimeout(function () {
+        snowContainer.removeChild(snowflake);
+    }, 2000);
+});
