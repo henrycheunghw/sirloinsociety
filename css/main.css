@@ -201,7 +201,7 @@ pointer-events: none;
     height: 100vh;
     background-color: var(--grey);
     z-index: 9999;
-    animation: fadeOut 2s ease-in 2s forwards;
+    animation: fadeOut 2s ease-in 3s forwards;
 }
 
 @keyframes fadeOut {
@@ -345,7 +345,7 @@ main {
                 opacity 0.3s linear,
                 filter 0.3s linear;
     transform: translateX(-100%);
-    animation: slide-in 1.5s forwards 2s;
+    animation: slide-in 1.5s forwards 3s;
 }
 
 @keyframes slide-in {
@@ -387,7 +387,7 @@ main {
 .hero-section__text h6 {
     color: var(--blue);
     font-style: italic;
-    animation: animate-text 2s ease-in-out 2s forwards;
+    animation: animate-text 2s ease-in-out 3s forwards;
 }
   
 @keyframes animate-text {
