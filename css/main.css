@@ -975,6 +975,13 @@ form {
 
 @media (max-width: 480px) {
 
+    body {
+        background: url("../img/background_sm.png");
+        background-size: cover;
+        font-family: var(--primary-font);
+        overflow-x: hidden;
+    }
+
     /* Main */
     main {
         margin-left: 20px;
@@ -1134,6 +1141,36 @@ form {
     .menu__content .grid {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: auto auto auto auto;
+    }
+
+    #menu-item-1 {
+        background: url("../img/menu1_sm.jpg");
+        background-size: cover;
+    }
+    
+    #menu-item-2 {
+        background: url("../img/menu2_sm.jpg");
+        background-size: cover;
+    }
+    
+    #menu-item-3 {
+        background: url("../img/menu3_sm.jpg");
+        background-size: cover;
+    }
+    
+    #menu-item-4 {
+        background: url("../img/menu4_sm.jpg");
+        background-size: cover;
+    }
+    
+    #menu-item-5 {
+        background: url("../img/menu5_sm.jpg");
+        background-size: cover;
+    }
+    
+    #menu-item-6 {
+        background: url("../img/menu6_sm.jpg");
+        background-size: cover;
     }
 
     /* Masonry breakpoint */
