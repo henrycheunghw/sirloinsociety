@@ -592,12 +592,12 @@ main {
 }
  
 .msnry-grid-item {
-    min-height: 400px;
-    margin-bottom: 2%;
+    min-height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    padding-bottom: 50px;
 }
 
 .button-container {
