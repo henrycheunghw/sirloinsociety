@@ -1,4 +1,47 @@
+// jQuery: change cover photo
+$(document).ready(function() {
+    function changeBackgroundImage() {
+        var windowWidth = $(window).width();
+        var imageUrl = '';
 
+        if (windowWidth <= 480) {
+            imageUrl = 'img/cover_sm.png';
+        } else {
+            imageUrl = 'img/cover.png';
+        }
+    }
+
+    // Call the function on page load
+    changeBackgroundImage();
+
+    // Call the function on window resize
+    $(window).resize(function() {
+        changeBackgroundImage();
+    });
+
+    function changeImageSources() {
+        var windowWidth = $(window).width();
+
+        $('.msnry-grid-item').each(function() {
+            var originalImageUrl = $(this).find('img').attr('src');
+            var smallImageUrl = originalImageUrl.replace('.jpg', '_sm.jpg');
+
+            if (windowWidth <= 480) {
+                $(this).find('img').attr('src', smallImageUrl);
+            } else {
+                $(this).find('img').attr('src', originalImageUrl);
+            }
+        });
+    }
+
+    // Call the function on page load
+    changeImageSources();
+
+    // Call the function on window resize
+    $(window).resize(function() {
+        changeImageSources();
+    });
+});
 
 // Masonry
 
