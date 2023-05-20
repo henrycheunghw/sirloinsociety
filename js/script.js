@@ -1,49 +1,4 @@
-// jQuery: change cover photo
-$(document).ready(function() {
-    function changeBackgroundImage() {
-        var windowWidth = $(window).width();
-        var imageUrl = '';
-
-        if (windowWidth <= 480) {
-            imageUrl = 'img/cover_sm.png';
-        } else {
-            imageUrl = 'img/cover.png';
-        }
-    }
-
-    // Call the function on page load
-    changeBackgroundImage();
-
-    // Call the function on window resize
-    $(window).resize(function() {
-        changeBackgroundImage();
-    });
-
-    function changeImageSources() {
-        var windowWidth = $(window).width();
-
-        $('.msnry-grid-item').each(function() {
-            var originalImageUrl = $(this).find('img').attr('src');
-            var smallImageUrl = originalImageUrl.replace('.jpg', '_sm.jpg');
-
-            if (windowWidth <= 480) {
-                $(this).find('img').attr('src', smallImageUrl);
-            } else {
-                $(this).find('img').attr('src', originalImageUrl);
-            }
-        });
-    }
-
-    // Call the function on page load
-    changeImageSources();
-
-    // Call the function on window resize
-    $(window).resize(function() {
-        changeImageSources();
-    });
-});
-
-// Masonry
+// Masonry plugin
 
 var grid = document.querySelector('.msnry-grid');
 
@@ -67,7 +22,7 @@ imagesLoaded( grid ).on( 'progress', function() {
     msnry.layout();
 });
 
-// Lightbox
+// Lightbox plugin
 lightbox.option({
     // Set the time it takes for the Lightbox container to animate its width and height when transition between different size images in 500ms
     'resizeDuration': 600,
@@ -122,32 +77,6 @@ window.addEventListener('scroll', function() {
       button.style.display = 'none';
     }
 });
-  
-// Custom cursor
-
-// var cursor = document.querySelector('.custom-cursor');
-// var mouseX = 0;
-// var mouseY = 0;
-// var delay = 10; // Adjust the delay value (in milliseconds) as desired
-
-// document.addEventListener('mousemove', function(event) {
-//   mouseX = event.clientX;
-//   mouseY = event.clientY;
-// });
-
-// function animateCursor() {
-//   var distX = mouseX - cursor.offsetLeft;
-//   var distY = mouseY - cursor.offsetTop;
-//   var posX = cursor.offsetLeft + (distX / delay);
-//   var posY = cursor.offsetTop + (distY / delay);
-
-//   cursor.style.left = posX + 'px';
-//   cursor.style.top = posY + 'px';
-
-//   requestAnimationFrame(animateCursor);
-// };
-
-// animateCursor();
 
 // Delay effect to navigating buttons
 var buttons = document.querySelectorAll('.nav-btns');
@@ -161,10 +90,10 @@ function handleClick(event) {
   setTimeout(function() {
     target.classList.remove('disabled');
     window.location.href = target.href;
-  }, 500); // Delay duration in milliseconds
+  }, 500);
 }
 
-// Snowflake
+// Snowflake mouse click effect
     document.addEventListener('click', function (event) {
     const snowContainer = document.querySelector('.snow-container');
     const snowflake = document.createElement('div');
